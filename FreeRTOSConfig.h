@@ -81,14 +81,15 @@ assembly files that include this header file. */
  *
  * See http://www.freertos.org/a00110.html.
  *----------------------------------------------------------*/
-
+#include "CMSIS/m2sxxx.h"			// TIA
+#include "CMSIS/system_m2sxxx.h"	// TIA
 
 #define configUSE_PREEMPTION			1
 #define configUSE_IDLE_HOOK				1
 #define configUSE_TICK_HOOK				0
 #define configCPU_CLOCK_HZ				( SystemCoreClock )
-#define configTICK_RATE_HZ				( ( portTickType ) 1000 )
-#define configMAX_PRIORITIES			( ( unsigned portBASE_TYPE ) 7 )
+#define configTICK_RATE_HZ				( ( TickType_t ) 1000 )
+#define configMAX_PRIORITIES			(  7 )
 #define configMINIMAL_STACK_SIZE		( ( unsigned short ) 90 )
 #define configTOTAL_HEAP_SIZE			( ( size_t ) ( 20 * 1024 ) )
 #define configMAX_TASK_NAME_LEN			( 10 )

@@ -398,8 +398,8 @@ sys_thread_t sys_thread_new(const char *name, lwip_thread_fn thread, void *arg, 
 */
 sys_prot_t sys_arch_protect(void)
 {
-    vPortEnterCritical();
-    return 1;
+	// vPortEnterCritical()
+	return portSET_INTERRUPT_MASK_FROM_ISR(); // 1;
 }
 
 /*------------------------------------------------------------------------------
@@ -410,8 +410,9 @@ sys_prot_t sys_arch_protect(void)
 */
 void sys_arch_unprotect(sys_prot_t pval)
 {
-    (void) pval;
-    vPortExitCritical();
+    // (void) pval;
+    // vPortExitCritical();
+	portCLEAR_INTERRUPT_MASK_FROM_ISR(pval);
 }
 
 u32_t sys_arch_random(void)

@@ -22,6 +22,9 @@
   * vers. 0.08  Bug fixing in Ethernet UDP test.
   * 27/11/25
   *
+  * vers. 0.09  Update FreeRTOS to 10.2.1
+  * 29/05/26
+  *
   * Flash memory map:
   * Total NVM       0x00000000..0x0003FFFF      256KB
   * Boot            0x00000000..0x00007BFF       31KB
@@ -108,7 +111,7 @@ extern uint8_t BootVer[5]   __attribute__((section(".infoboot3"))); // BOOT vers
 /* Define Constants --------------------------------------------------------- */
 
 const char SoftCode[9] = {"82037801"};				// Program code
-const char SoftVer[5]  = {"0.08"};					// Program Version
+const char SoftVer[5]  = {"0.09"};					// Program Version
 
 
 /* Define Global variables -------------------------------------------------- */

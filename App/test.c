@@ -923,6 +923,7 @@ struct udp_pcb *udp0;
 struct pbuf *pb;
 uint8_t udp0TxBuf[24];
 uint8_t udp0RxBuf[24];
+uint8_t gETHtest = 0;
 
 void Test_ETH_UDP(void)
 {
@@ -943,6 +944,15 @@ void Test_ETH_UDP(void)
     VL_Curs(19, 1);
     VL_Puts((uint8_t*)"ESC=exit F1=start");
     VL_SetForeColor(BLACK);
+
+    if (gETHtest == 1)
+    {
+        VL_Curs(5, 5);
+        VL_Puts((uint8_t*)"TEST NO LONGER AVAILABLE");
+        WaitMsec(1000);
+        goto esci;
+    }
+    gETHtest = 1;
 
     /* Set USR_BTN# as input */  // NIK togliere
     GPIO_config(&g_gpio0, USR_BTN_N, GPIO_INPUT_MODE);
@@ -1169,6 +1179,7 @@ void Test_ETH_UDP(void)
 chiudi:
     udp_disconnect(udp0);   // Remove the socket but Thread remains
     udp_remove(udp0);
+    ETH_RES_ON;
 esci:
     VL_SwClear();
     VL_Clear();

@@ -81,7 +81,6 @@ typedef void (*tcpip_callback_fn)(void *ctx);
 struct tcpip_callback_msg;
 
 void tcpip_init(tcpip_init_done_fn tcpip_init_done, void *arg);
-
 #if LWIP_NETCONN
 err_t tcpip_apimsg(struct api_msg *apimsg);
 #if LWIP_TCPIP_CORE_LOCKING
